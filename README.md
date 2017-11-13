@@ -1,5 +1,7 @@
 NavicoLineSegment
 
+[![Build Status](https://travis-ci.org/derrix060/NavicoLineSegment.svg?branch=master)](https://travis-ci.org/derrix060/NavicoLineSegment)
+
 Repository created to exemplify one good implementation of a LineSegment.
 
 The tests were created using `Boundary value analysis` and `Equivalence Partitioning`, both `black-box` technique.
