@@ -24,7 +24,9 @@ script:
   - coverage report
   # Generate report to mutants
   - if [[ $TRAVIS_PYTHON_VERSION != 2* && $TRAVIS_PYTHON_VERSION != 3.3 ]]; then cosmic-ray init cosmic_config.yml test_session && cosmic-ray exec test_session && cosmic-ray dump test_session | cr-report; fi
-after_success:
-  - coveralls
+after_script:
   # Code Climate
   - ./cc-test-reporter after-build --exit-code $TRAVIS_TEST_RESULT
+after_success:
+  - coveralls
+  
