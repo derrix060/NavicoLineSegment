@@ -33,7 +33,7 @@ class TestLineSegment(unittest.TestCase):
         p = Point(self.p1.x, self.p1.y + 0.1)
         ls2 = LineSegment(self.p1, p)
         self.assertIsNone(ls2.slope)
-    
+
     def test_slope_zero(self):
         p = Point(self.p1.x + 0.1, self.p1.y)
         ls2 = LineSegment(self.p1, p)
@@ -87,6 +87,27 @@ class TestLineSegment(unittest.TestCase):
         ls2 = LineSegment(self.p1, p)
         self.assertFalse(self.ls1.is_perpendicular(ls2))
         self.assertFalse(ls2.is_perpendicular(self.ls1))
+
+class TestPoint(unittest.TestCase):
+    
+    def test_valid_point(self):
+        Point(1, 1)
+    
+    def test_equals_points(self):
+        p1 = Point(1, 1)
+        p2 = Point(1, 1)
+
+        self.assertTrue(p1 == p1)
+        self.assertTrue(p1 == p2)
+        self.assertFalse(p1 != p1)
+        self.assertFalse(p1 != p2)
+    
+    def test_not_equals_points(self):
+        p1 = Point(1, 1)
+        p2 = Point(1, 2)
+
+        self.assertTrue(p1 != p2)
+        self.assertFalse(p1 == p2)
 
 
 if __name__ == '__main__':
