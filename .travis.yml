@@ -4,7 +4,11 @@ python:
   - "3.3"
   - "3.4"
   - "3.5"
-  - "3.5-dev"
+  - "3.5-dev" # 3.5 development branch
+  - "3.6"
+  - "3.6-dev" # 3.6 development branch
+  - "3.7-dev" # 3.7 development branch
+  - "nightly"
 install:
   - pip install -U pip
   - pip install -r requirements.txt
@@ -12,6 +16,6 @@ script:
   - coverage run tests.py
   - coverage report
   # Generate report to mutants
-  - if [[ $TRAVIS_PYTHON_VERSION != 2* ]]; then cosmic-ray init --test-runner=unittest --baseline=10 cosmic_session.json bank -- . && cosmic-ray exec cosmic_session.json && cosmic-ray dump cosmic_session.json | cr-report; fi
+  - if [[ $TRAVIS_PYTHON_VERSION != 2* ]]; then cosmic-ray init cosmic_config.yml test_session && cosmic-ray exec test_session && cosmic-ray dump test_session | cr-report; fi
 after_success:
   - coveralls

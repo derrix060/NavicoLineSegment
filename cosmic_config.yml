@@ -1,0 +1,12 @@
+module: LineSegment
+
+baseline: 10
+
+exclude-modules:
+
+test-runner:
+  name: unittest
+  args: .
+
+execution-engine:
+  name: local
