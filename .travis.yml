@@ -13,9 +13,9 @@ install:
   - pip install -U pip
   - pip install -r requirements.txt
 script:
-  - coverage run tests.py
+  - coverage run tests.py -v
   - coverage report
   # Generate report to mutants
-  - if [[ $TRAVIS_PYTHON_VERSION != 2* ]]; then cosmic-ray init cosmic_config.yml test_session && cosmic-ray exec test_session && cosmic-ray dump test_session | cr-report; fi
+  - if [[ $TRAVIS_PYTHON_VERSION != 2* && $TRAVIS_PYTHON_VERSION != 3.3 ]]; then cosmic-ray init cosmic_config.yml test_session && cosmic-ray exec test_session && cosmic-ray dump test_session | cr-report; fi
 after_success:
   - coveralls
