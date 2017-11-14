@@ -2,6 +2,8 @@ NavicoLineSegment
 
 [![Build Status](https://travis-ci.org/derrix060/NavicoLineSegment.svg?branch=master)](https://travis-ci.org/derrix060/NavicoLineSegment)
 [![Coverage Status](https://coveralls.io/repos/github/derrix060/NavicoLineSegment/badge.svg?branch=master)](https://coveralls.io/github/derrix060/NavicoLineSegment?branch=master)
+[![Maintainability](https://api.codeclimate.com/v1/badges/21c1742a91c8223bcbcd/maintainability)](https://codeclimate.com/github/derrix060/NavicoLineSegment/maintainability)
+[![Test Coverage](https://api.codeclimate.com/v1/badges/21c1742a91c8223bcbcd/test_coverage)](https://codeclimate.com/github/derrix060/NavicoLineSegment/test_coverage)
 
 Repository created to exemplify one good implementation of a LineSegment.
 

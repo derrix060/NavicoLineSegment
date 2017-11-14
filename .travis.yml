@@ -1,3 +1,6 @@
+env:
+  global:
+    - CC_TEST_REPORTER_ID=06ca9adfe57e652d5f3ef7034dd4dac7d13fc6cdc1ce0f0f420833c67eb94fe2
 language: python
 python:
   - "2.7"
@@ -12,6 +15,10 @@ python:
 install:
   - pip install -U pip
   - pip install -r requirements.txt
+  # Code Climate
+  - curl -L https://codeclimate.com/downloads/test-reporter/test-reporter-latest-linux-amd64 > ./cc-test-reporter
+  - chmod +x ./cc-test-reporter
+  - ./cc-test-reporter before-build
 script:
   - coverage run tests.py -v
   - coverage report
@@ -19,3 +26,5 @@ script:
   - if [[ $TRAVIS_PYTHON_VERSION != 2* && $TRAVIS_PYTHON_VERSION != 3.3 ]]; then cosmic-ray init cosmic_config.yml test_session && cosmic-ray exec test_session && cosmic-ray dump test_session | cr-report; fi
 after_success:
   - coveralls
+  # Code Climate
+  - ./cc-test-reporter after-build --exit-code $TRAVIS_TEST_RESULT
