@@ -1,5 +1,6 @@
 #!/usr/bin/python3
 
+from __future__ import division # solve python2 division
 import math
 
 class Point():
