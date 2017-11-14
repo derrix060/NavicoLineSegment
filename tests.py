@@ -13,7 +13,7 @@ class TestLineSegment(unittest.TestCase):
 
 
     def test_correct_line_segment(self):
-        ls1 = LineSegment(self.p2, self.p1)
+        LineSegment(self.p2, self.p1)
 
     def test_parallel_line_segment_y_axis(self):
         p = Point(self.p1.x, self.p1.y + 0.1)
@@ -132,14 +132,13 @@ class TestLineSegment(unittest.TestCase):
         self.assertFalse(ls1.is_perpendicular(self.ls_y_axis))
         self.assertFalse(self.ls_y_axis.is_perpendicular(ls2))
         self.assertFalse(ls2.is_perpendicular(self.ls_y_axis))
-        
-        
+
 
 class TestPoint(unittest.TestCase):
     
     def test_valid_point(self):
         Point(1, 1)
-    
+
     def test_equals_points(self):
         p1 = Point(1, 1)
         p2 = Point(1, 1)
@@ -166,7 +165,6 @@ class TestPoint(unittest.TestCase):
         self.assertTrue(p != p1)
         self.assertFalse(p == p2)
         self.assertTrue(p != p2)
-
 
 
 
