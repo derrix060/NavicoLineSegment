@@ -7,11 +7,11 @@ python:
   - "3.5-dev"
 install:
   - pip install -U pip
-before_script:
-  - pip install coverage
-  - pip install coveralls
+  - pip install -r requirements.txt
 script:
   - coverage run tests.py
   - coverage report
+  # Generate report to mutants
+  - if [[ $TRAVIS_PYTHON_VERSION != 2* ]]; then cosmic-ray init --test-runner=unittest --baseline=10 cosmic_session.json bank -- . && cosmic-ray exec cosmic_session.json && cosmic-ray dump cosmic_session.json | cr-report; fi
 after_success:
   - coveralls
