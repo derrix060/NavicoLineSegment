@@ -99,15 +99,28 @@ class TestPoint(unittest.TestCase):
 
         self.assertTrue(p1 == p1)
         self.assertTrue(p1 == p2)
-        self.assertFalse(p1 != p1)
-        self.assertFalse(p1 != p2)
-    
-    def test_not_equals_points(self):
-        p1 = Point(1, 1)
-        p2 = Point(1, 2)
 
-        self.assertTrue(p1 != p2)
-        self.assertFalse(p1 == p2)
+    def test_not_equals_x_limits(self):
+        p = Point(1, 1)
+        p1 = Point(1.1, 1)
+        p2 = Point(0.9, 1)
+
+        self.assertFalse(p == p1)
+        self.assertTrue(p != p1)
+        self.assertFalse(p == p2)
+        self.assertTrue(p != p2)
+    
+    def test_not_equals_y_limits(self):
+        p = Point(1, 1)
+        p1 = Point(1, 1.1)
+        p2 = Point(1, 0.9)
+
+        self.assertFalse(p == p1)
+        self.assertTrue(p != p1)
+        self.assertFalse(p == p2)
+        self.assertTrue(p != p2)
+
+
 
 
 if __name__ == '__main__':
